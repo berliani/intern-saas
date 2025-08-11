@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'company_id'
     ];
 
     /**
@@ -38,6 +40,9 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
+     public function company(){
+        return $this->belongsTo(Company::class);
+    }
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
